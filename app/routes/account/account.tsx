@@ -2,13 +2,13 @@ import type { Route } from "./+types/account";
 
 export default function Account() {
   return (
-    <main className="flex items-center justify-center pt-16 pb-4 px-15 flex-col">
-      <div className="w-full">
+    <main className="flex items-center justify-center pt-16 pb-4 flex-col">
+      <div>
         <h2 className="pb-16 flex justify-center">
           <b>Account</b>
         </h2>
         <div>
-          <div className="flex flex-col">
+          <div>
             <div className="flex flex-row justify-between pb-10">
               <button onClick={()=> location.href = "account/settings"}>Settings</button>
               <button onClick={()=> location.href = "account/cycle"}>Cycle</button>
