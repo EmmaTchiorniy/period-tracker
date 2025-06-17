@@ -10,8 +10,8 @@ export default function NavigationBar() {
     <Container>
       <Nav className='nav-items pt-4'>
           <Nav.Link href="/" className='text-black'>Home</Nav.Link>
-          <Nav.Link href="track" className=' text-black'>Track</Nav.Link>
-          <Nav.Link href="account" className=' text-black'>Account</Nav.Link>
+          <Nav.Link href="/track" className=' text-black'>Track</Nav.Link>
+          <Nav.Link href="/account" className=' text-black'>Account</Nav.Link>
       </Nav>
     </Container>
   </Navbar>
