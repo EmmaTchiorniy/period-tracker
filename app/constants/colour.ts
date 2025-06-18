@@ -8,4 +8,6 @@ export enum Colour {
     PeriodRed = "#FF4B4B", 
     PeriodRedBorder = "#AE0000",
     PredictionPink = "#FFC1C1",
+    LightGrey = "rgba(0, 0, 0, 0.5)",
+    Black = "#000000",
 }

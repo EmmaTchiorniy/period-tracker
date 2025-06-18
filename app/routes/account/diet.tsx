@@ -1,4 +1,4 @@
-import BackButton from "~/shared/shared/back-button";
+import BackButton from "~/shared/buttons/back-button";
 import type { Route } from "./+types/help";
 
 export default function Diet() {

@@ -1,7 +1,7 @@
-import HomeButton from "~/shared/shared/buttons/home-button";
+import HomeButton from "~/shared/buttons/home-button";
 import type { Route } from "./+types/home";
 import { Colour } from "~/constants/colour";
-import ButtonGroup from "./components/button-group";
+import ButtonGroup from "../../shared/buttons/button-group";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -24,12 +24,12 @@ export default function Home() {
       </div>
       <div style={{width: "100%"}}>
         <div className="pb-4">
-          <ButtonGroup text="Diet">
+          <ButtonGroup text="Diet" color={Colour.LightGrey}>
             <HomeButton colour={Colour.Green} text="Recipes" href="diet/recipes"/>
             <HomeButton colour={Colour.Green} text="Dos & Donts" href="diet/dos-donts"/>
           </ButtonGroup>
         </div>
-        <ButtonGroup text="Exercise">
+        <ButtonGroup text="Exercise" color={Colour.LightGrey}>
           <HomeButton colour={Colour.Blue} text="Workouts" href="exercise/recipes"/>
           <HomeButton colour={Colour.Blue} text="Dos & Donts" href="exercise/dos-donts"/>
         </ButtonGroup>

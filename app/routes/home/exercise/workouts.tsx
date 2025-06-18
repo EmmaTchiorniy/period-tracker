@@ -1,4 +1,4 @@
-import BackButton from "~/shared/shared/back-button";
+import BackButton from "~/shared/buttons/back-button";
 
 export default function Workouts() {
     return (
