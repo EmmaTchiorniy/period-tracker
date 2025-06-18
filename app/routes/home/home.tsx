@@ -1,4 +1,7 @@
+import HomeButton from "~/shared/shared/buttons/home-button";
 import type { Route } from "./+types/home";
+import { Colour } from "~/constants/colour";
+import ButtonGroup from "./components/button-group";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,8 +12,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center pt-24 pb-4 flex-col">
-    <div>
+    <main className="flex items-center justify-center pt-24 pb-4 flex-col mx-3">
     <h2 className="pb-16 flex justify-center">
         <b>Home</b>
       </h2>
@@ -20,23 +22,18 @@ export default function Home() {
       <div className="pb-16">
         <h3>Cycle Overview</h3>
       </div>
-      <div>
-        <div className="pb-16">
-          <h5>Diet</h5>
-          <div className="flex flex-row justify-between">
-            <button onClick={()=> location.href = "diet/recipes"}>Recipes</button>
-            <button onClick={()=> location.href = "diet/dos-donts"}>Dos & Donts</button>
-          </div>
+      <div style={{width: "100%"}}>
+        <div className="pb-4">
+          <ButtonGroup text="Diet">
+            <HomeButton colour={Colour.Green} text="Recipes" href="diet/recipes"/>
+            <HomeButton colour={Colour.Green} text="Dos & Donts" href="diet/dos-donts"/>
+          </ButtonGroup>
         </div>
-        <div>
-          <h5>Exercise</h5>
-          <div className="flex flex-row justify-between">
-            <button onClick={()=> location.href = "exercise/workouts"}>Workouts</button>
-            <button onClick={()=> location.href = "exercise/dos-donts"}>Dos & Donts</button>
-          </div>
-        </div>
+        <ButtonGroup text="Exercise">
+          <HomeButton colour={Colour.Blue} text="Workouts" href="exercise/recipes"/>
+          <HomeButton colour={Colour.Blue} text="Dos & Donts" href="exercise/dos-donts"/>
+        </ButtonGroup>
       </div>
-    </div>
   </main>
   );
 }

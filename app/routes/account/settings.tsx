@@ -1,4 +1,4 @@
-import BackButton from "~/shared/navbar/back-button";
+import BackButton from "~/shared/shared/back-button";
 import type { Route } from "./+types/help";
 
 export default function Settings() {
