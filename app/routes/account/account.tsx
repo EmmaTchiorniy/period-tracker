@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router";
 import { Colour } from "~/constants/colour";
 import AccountButton from "~/shared/buttons/account-button";
 import ButtonGroup from "~/shared/buttons/button-group";
 
 export default function Account() {
+  let navigate = useNavigate();
   return (
     <main className="flex items-center justify-center pt-16 pb-4 flex-col">
       <div className="flex justify-center flex-col">
@@ -11,20 +13,20 @@ export default function Account() {
             <div className="flex flex-col items-center">
               <div className="mb-3 flex flex-row justify-evenly">
                 <div className="mr-4">
-                  <AccountButton colour={Colour.Pink} text="Settings" href="account/settings"/>
+                  <AccountButton colour={Colour.Pink} text="Settings" href="settings"/>
                 </div>
-                <AccountButton colour={Colour.Blue} text="Cycle" href="account/cycle"/>
+                <AccountButton colour={Colour.Blue} text="Cycle" href="cycle"/>
               </div>
               <div className="flex flex-row justify-evenly">
                 <div className="mr-4">
-                  <AccountButton colour={Colour.Green} text="Diet" href="account/diet"/>
+                  <AccountButton colour={Colour.Green} text="Diet" href="diet"/>
                 </div>
-                <AccountButton colour={Colour.Purple} text="Fitness" href="account/fitness"/>
+                <AccountButton colour={Colour.Purple} text="Fitness" href="fitness"/>
               </div>
             </div>
           </ButtonGroup>
         </div>
-        <button className="text-white" style={{backgroundColor: Colour.Orange, borderRadius: "10px", height: "56px", width: "350px"}} onClick={() => location.href = "account/help"}>
+        <button className="text-white" style={{backgroundColor: Colour.Orange, borderRadius: "10px", height: "56px", width: "350px"}} onClick={() => navigate("help")}>
             Help
         </button>
       </div>

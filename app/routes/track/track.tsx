@@ -8,7 +8,7 @@ export default function Track() {
   return (
   <main className="flex items-center justify-center pt-18 pb-4 flex-col mx-4">
     <div className="pb-4 flex justify-center">
-      {/* <TrackCalendar /> */}
+      <TrackCalendar />
     </div>
     <div className="pb-4 flex flex-col justify-center">
       <TrackButton colour={Colour.Pink} text="Flow"/>

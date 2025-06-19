@@ -31,7 +31,7 @@ export default function Home() {
         </div>
         <ButtonGroup text="Exercise" colour={Colour.LightGrey}>
           <div className="mr-4">
-            <HomeButton colour={Colour.Blue} text="Workouts" href="exercise/recipes"/>
+            <HomeButton colour={Colour.Blue} text="Workouts" href="exercise/workouts"/>
           </div>
           <HomeButton colour={Colour.Blue} text="Dos & Donts" href="exercise/dos-donts"/>
         </ButtonGroup>
