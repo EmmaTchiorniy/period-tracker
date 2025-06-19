@@ -1,9 +1,10 @@
 .nav-items {
     display: flex;
     width: inherit;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     a {
         font-size: small;
+        width:55px;
     }
 }

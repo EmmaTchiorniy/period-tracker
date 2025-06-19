@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import 'bootstrap/dist/css/bootstrap.min.css';
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+@import '@mantine/dates/styles.css';
 
 body, html { 
   font-family: 'Roboto Mono', monospace;

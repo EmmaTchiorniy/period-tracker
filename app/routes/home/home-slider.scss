@@ -1,0 +1,13 @@
+.slide {
+    display: flex;
+    height: 130px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 100%;
+
+    h3 {
+        color: white;
+        font-family: 'Roboto Mono', monospace;
+    }
+}
