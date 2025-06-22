@@ -15,7 +15,7 @@ export default function OffCanvasSymptoms(props : TrackButtonProps) {
 
   return (
     <>
-      <button className="text-white mb-2" onClick={handleShow} style={{backgroundColor: props.colour, borderRadius: "10px", height: "28px", width: "350px", fontSize: "small", textAlign: "left"}}>
+      <button className="text-white mb-2" onClick={handleShow} style={{backgroundColor: props.colour, borderRadius: "10px", height: "28px", width: "350px", fontSize: "12px", textAlign: "left"}}>
             <p className="pl-2.5 mb-0">+ {props.text}</p>
         </button>
       <Offcanvas show={show} onHide={handleClose} placement='bottom'>

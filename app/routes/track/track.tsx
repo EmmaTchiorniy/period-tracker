@@ -5,10 +5,14 @@ import TrackCalendar from "./calendar";
 import OffCanvasFlow from "./off-canvases/flow-canvas";
 import OffCanvasSymptoms from "./off-canvases/symptoms-canvas";
 import OffCanvasHistory from "./off-canvases/history-canvas";
+import Welcome from "~/shared/welcome";
 
 export default function Track() {
   return (
-  <main className="flex items-center justify-center pt-18 pb-4 flex-col mx-4">
+  <main> 
+    <div className="w-max self-center">
+    <Welcome />
+    <div className="flex items-center justify-center pt-0.5 pb-4 flex-col mx-4">
     <div className="pb-4 flex justify-center">
       <TrackCalendar />
     </div>
@@ -36,6 +40,8 @@ export default function Track() {
           </div>
         </ButtonGroup>
       </div>
+    </div>
+    </div>
     </div>
   </main>
   );

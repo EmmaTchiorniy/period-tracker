@@ -3,6 +3,7 @@ import type { Route } from "./+types/home";
 import { Colour } from "~/constants/colour";
 import ButtonGroup from "../../shared/buttons/button-group";
 import HomeSlider from "./home-slider";
+import Welcome from "~/shared/welcome";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,11 +14,14 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center pt-16 pb-4 flex-col mx-4.5">
-      <div className="pb-15">
+    <main>
+      <div className="w-max flex flex-col justify-center">
+      <Welcome />
+    <div className="flex items-center justify-center mt-3 pb-4 flex-col mx-4.5">
+      <div className="pb-11 ">
         <HomeSlider/>
       </div>
-      <div className="pb-4.5">
+      <div className="pb-2">
         <h3>Cycle Overview</h3>
       </div>
       <div>
@@ -36,6 +40,8 @@ export default function Home() {
           <HomeButton colour={Colour.Blue} text="Dos & Donts" href="exercise/dos-donts"/>
         </ButtonGroup>
       </div>
+  </div>
+  </div>
   </main>
   );
 }
