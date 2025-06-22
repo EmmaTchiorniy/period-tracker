@@ -11,7 +11,7 @@ export default function Fitness() {
           <div className="w-max flex flex-col justify-between self-center">
             <h3 className="mb-0 text-center"><b>Fitness</b></h3>
             <div className="flex flex-row justify-between pt-5">
-              <p className="mb-0 mr-12 text-sm self-center">Fitness Level</p>
+              <p className="mb-0 mr-11 text-sm self-center">Fitness Level</p>
               <DropDownSelect options={fitnessOptions} width={"max-content"}/>
             </div>
           </div>

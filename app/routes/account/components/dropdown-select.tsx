@@ -15,7 +15,7 @@ function DropDownSelect(props : DropDownSelectProps) {
 
   return (
     <div style={{width: props.width}}>
-      <Form.Select size="sm" value={selectedOption} onChange={handleSelectChange}>
+      <Form.Select size="sm" value={selectedOption} onChange={handleSelectChange} style={{borderRadius: '10px', border: 'none', backgroundColor: '#F5F5F5', paddingLeft: '16px'}}>
         <option disabled>Select</option>
         {props.options.map((i: string | number) => (
           <option key={i} value={i}>{i}</option>
