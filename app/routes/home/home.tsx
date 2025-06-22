@@ -18,10 +18,10 @@ export default function Home() {
       <div className="w-max flex flex-col justify-center">
       <Welcome />
     <div className="flex items-center justify-center mt-3 pb-4 flex-col mx-4.5">
-      <div className="pb-11 ">
+      <div className="pb-13 ">
         <HomeSlider/>
       </div>
-      <div className="pb-2">
+      <div className="pb-3">
         <h3>Cycle Overview</h3>
       </div>
       <div>

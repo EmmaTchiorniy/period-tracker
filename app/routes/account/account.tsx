@@ -2,11 +2,15 @@ import { useNavigate } from "react-router";
 import { Colour } from "~/constants/colour";
 import AccountButton from "~/shared/buttons/account-button";
 import ButtonGroup from "~/shared/buttons/button-group";
+import Welcome from "~/shared/welcome";
 
 export default function Account() {
   let navigate = useNavigate();
   return (
-    <main className="flex items-center justify-center pt-16 pb-4 flex-col">
+    <main>
+      <div className="w-max self-center">
+        <Welcome />
+      <div className="flex items-center justify-center pt-3 pb-4 flex-col">
       <div className="flex justify-center flex-col">
         <div className="mb-4">
           <ButtonGroup text="" colour={Colour.Black}>
@@ -29,6 +33,8 @@ export default function Account() {
         <button className="text-white" style={{backgroundColor: Colour.Orange, borderRadius: "10px", height: "56px", width: "350px"}} onClick={() => navigate("help")}>
             Help
         </button>
+      </div>
+      </div>
       </div>
     </main>
     );
