@@ -1,8 +1,10 @@
 import { Colour } from "~/constants/colour";
 import HomeButton from "~/shared/buttons/home-button";
 import ButtonGroup from "../../shared/buttons/button-group";
-import TrackButton from "~/shared/buttons/track-button";
 import TrackCalendar from "./calendar";
+import OffCanvasFlow from "./off-canvases/flow-canvas";
+import OffCanvasSymptoms from "./off-canvases/symptoms-canvas";
+import OffCanvasHistory from "./off-canvases/history-canvas";
 
 export default function Track() {
   return (
@@ -11,9 +13,9 @@ export default function Track() {
       <TrackCalendar />
     </div>
     <div className="pb-4 flex flex-col justify-center">
-      <TrackButton colour={Colour.Pink} text="Flow"/>
-      <TrackButton colour={Colour.Blue} text="Symptoms"/>
-      <TrackButton colour={Colour.Green} text="Edit History"/>
+      <OffCanvasFlow colour={Colour.Pink} text="Flow"/>
+      <OffCanvasSymptoms colour={Colour.Blue} text="Symptoms"/>
+      <OffCanvasHistory colour={Colour.Green} text="Edit History"/>
     </div>
     <div>
       <div className="flex justify-center flex-col">
