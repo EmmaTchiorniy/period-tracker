@@ -9,7 +9,7 @@ function InputField() {
         
   return (
     <Form>
-        <Form.Group className="w-41">
+        <Form.Group className="w-35">
             <Form.Control size="sm" value={selectedOption} onChange={handleSelectChange} type="name" placeholder="First Last" />
         </Form.Group>
     </Form>
