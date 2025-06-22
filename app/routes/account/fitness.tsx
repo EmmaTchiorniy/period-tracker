@@ -1,11 +1,17 @@
 import BackButton from "~/shared/buttons/back-button";
 import type { Route } from "./+types/help";
+import DropDownSelect from "./components/dropdown-select";
 
 export default function Fitness() {
+  const fitnessOptions = ["Very Active", "Active", "Lightly Active", "Not Active"];
     return (
       <div className="pt-16 px-8 relative items-center">
-        <BackButton prevHref={"/account"}></BackButton>
-        <h3 className="mb-0" style={{textAlign:"center"}}><b>Fitness</b></h3>
+        <BackButton prevHref={"/account"} />
+        <h3 className="mb-0 text-center"><b>Fitness</b></h3>
+        <div className="flex flex-row justify-between pt-5">
+          <p className="mb-0 text-sm self-center">Fitness Level</p>
+          <DropDownSelect options={fitnessOptions} width={"max-content"}/>
+        </div>
       </div>
     );
   }

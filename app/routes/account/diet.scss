@@ -1,0 +1,27 @@
+.custom-cross-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+    align-self: center;
+    position: relative;
+  }
+  
+  .custom-cross-checkbox:checked::after {
+    content: "☓";
+    position: absolute;
+    color: black;
+    font-size: 14px;
+    line-height: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  
+  label {
+    display: flex !important;
+  }

@@ -1,10 +1,27 @@
+import { useState } from 'react';
+import Form from 'react-bootstrap/Form';
 
-function DropDownSelect() {
+type DropDownSelectProps = {
+  options: string[];
+  width: string;
+};
+
+function DropDownSelect(props : DropDownSelectProps) {
+
+  const [selectedOption, setSelectedOption] = useState('');
+    const handleSelectChange = (e : any) => {
+        setSelectedOption(e.target.value);
+    };
+
   return (
-    <select>
-        <option value="someOption">Some option</option>
-        <option value="otherOption">Other option</option>
-    </select>
+    <div style={{width: props.width}}>
+      <Form.Select size="sm" value={selectedOption} onChange={handleSelectChange}>
+        <option disabled>Select</option>
+        {props.options.map((i: string) => (
+          <option key={i} value={i}>{i}</option>
+        ))}
+      </Form.Select>
+    </div>
   );
 }
 
