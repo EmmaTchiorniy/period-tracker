@@ -7,7 +7,6 @@ import {
   ScrollRestoration,
 } from "react-router";
 
-
 import type { Route } from "./+types/root";
 import "./app.css";
 import NavigationBar from "./shared/navigation-bar";
@@ -27,10 +26,6 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export const globalData = {
-  user: "Jane Doe"
-}
-
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -41,9 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <MantineProvider>
-        {children}
-        </MantineProvider>
+        <MantineProvider>{children}</MantineProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -52,11 +45,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const [user, setUser] = useState("Jane Doe");
+  const [name, setName] = useState("Jane Doe");
+
   return (
     <div>
-      <Outlet />
-      <NavigationBar/>
+      <Outlet context={{ name, setName }} />
+      <NavigationBar />
     </div>
   );
 }
