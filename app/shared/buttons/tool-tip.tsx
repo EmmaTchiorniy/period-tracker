@@ -1,7 +1,7 @@
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { ActionIcon } from "@mantine/core";
-import { CiCircleInfo } from "react-icons/ci";
+import { GoInfo } from "react-icons/go";
 import { IconContext } from "react-icons";
 
 interface ToolTipProps {
@@ -21,9 +21,9 @@ function TooltipIcon(props: ToolTipProps) {
           color={props.colour}
           aria-label="Tooltip"
         >
-          <IconContext.Provider value={{ size: "28px" }}>
+          <IconContext.Provider value={{ size: "27px" }}>
             <div>
-              <CiCircleInfo />
+              <GoInfo />{" "}
             </div>
           </IconContext.Provider>
         </ActionIcon>

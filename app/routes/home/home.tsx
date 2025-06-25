@@ -20,7 +20,7 @@ export default function Home() {
     <main className="flex flex-col items-center">
       <div className="w-max">
         <Welcome name={name} />
-        <div className="flex items-center justify-center pb-4 flex-col">
+        <div className="flex items-center justify-center pb-4 flex-col mt-4">
           <div className="pb-13 ">
             <HomeSlider />
           </div>
