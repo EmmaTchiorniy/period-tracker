@@ -2,6 +2,7 @@ import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Colour } from "~/constants/colour";
 import TooltipIcon from "~/shared/buttons/tool-tip";
+import "~/shared/checkboxes.scss";
 
 interface TrackButtonProps {
   colour: Colour;
@@ -10,6 +11,12 @@ interface TrackButtonProps {
 
 export default function OffCanvasSymptoms(props: TrackButtonProps) {
   const [show, setShow] = useState(false);
+  const symptoms = [
+    "Cramps",
+    "Low Energy",
+    "Mood Swings",
+    "Feeling Uncomfortable",
+  ];
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -36,7 +43,12 @@ export default function OffCanvasSymptoms(props: TrackButtonProps) {
           colour={props.colour}
         />
       </div>
-      <Offcanvas show={show} onHide={handleClose} placement="bottom">
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        placement="bottom"
+        className="h-50"
+      >
         <Offcanvas.Header>
           <Offcanvas.Title>Log Symptoms</Offcanvas.Title>
           <button
@@ -56,8 +68,19 @@ export default function OffCanvasSymptoms(props: TrackButtonProps) {
           </button>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <div className="flex flex-col gap-2.5">
+            {symptoms.map((item) => (
+              <label key={item} className="w-58 ml-2">
+                <input
+                  type="checkbox"
+                  className="custom-cross-checkbox"
+                  name="allergies"
+                  value={item}
+                />
+                <span className="text-sm ml-4">{item}</span>
+              </label>
+            ))}
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>

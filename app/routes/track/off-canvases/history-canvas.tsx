@@ -33,7 +33,12 @@ export default function OffCanvasHistory(props: TrackButtonProps) {
         </button>
         <TooltipIcon text="Here you can edit your logs" colour={props.colour} />
       </div>
-      <Offcanvas show={show} onHide={handleClose} placement="bottom">
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        placement="bottom"
+        className="h-50"
+      >
         <Offcanvas.Header>
           <Offcanvas.Title>Edit History</Offcanvas.Title>
           <button
@@ -52,10 +57,7 @@ export default function OffCanvasHistory(props: TrackButtonProps) {
             Done
           </button>
         </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
-        </Offcanvas.Body>
+        <Offcanvas.Body>Log your period to see some history!</Offcanvas.Body>
       </Offcanvas>
     </>
   );
