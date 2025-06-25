@@ -1,10 +1,26 @@
-@import '@mantine/core/styles.css';
-@import '@mantine/dates/styles.css';
+@import "@mantine/core/styles.css";
+@import "@mantine/dates/styles.css";
 @import "tailwindcss";
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "bootstrap/dist/css/bootstrap.min.css";
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-body, html { 
-  font-family: 'Roboto Mono', monospace;
+body,
+html {
+  font-family: "Roboto Mono", monospace;
+}
+
+.tooltip.show {
+  background-color: white !important;
+  border: 1px solid #ccc !important;
+  border-radius: 6px;
+}
+
+.tooltip-inner {
+  background-color: white !important;
+  color: black !important;
+}
+
+.tooltip .tooltip-arrow {
+  display: none !important;
 }
