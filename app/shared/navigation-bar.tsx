@@ -37,33 +37,24 @@ export default function NavigationBar() {
   const location = useLocation();
 
   return (
-    <Navbar
-      bg="light"
-      data-bs-theme="light"
-      fixed="bottom"
-      className="h-20 bg-[#f3f3f3] py-0"
-    >
-      <Container className="flex justify-around">
-        <Nav className="w-full flex justify-around items-center pt-2">
+    <Navbar fixed="bottom" className="h-20 bg-[#f3f3f3] py-0">
+      <Container>
+        <Nav className="nav-items pt-2">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
-              <div key={item.path} className="flex-1 flex justify-center">
-                <Nav.Link
-                  as={Link}
-                  to={item.path}
-                  className="flex flex-col items-center justify-center text-center"
-                >
-                  <img
-                    src={isActive ? item.iconFilled : item.iconOutline}
-                    alt={item.label}
-                    className={`w-5 h-5 mb-1 ${isActive ? "opacity-100" : "opacity-40"}`}
-                  />
-                  <span className={`text-xs ${isActive ? "text-black" : "text-gray-400"}`}>
-                    {item.label}
-                  </span>
-                </Nav.Link>
-              </div>
+              <Nav.Link
+                key={item.path}
+                as={Link}
+                to={item.path}
+                className={isActive ? "active" : ""}
+              >
+                <img
+                  src={isActive ? item.iconFilled : item.iconOutline}
+                  alt={item.label}
+                />
+                <span>{item.label}</span>
+              </Nav.Link>
             );
           })}
         </Nav>
