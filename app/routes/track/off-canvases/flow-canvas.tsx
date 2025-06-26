@@ -5,6 +5,8 @@ import TooltipIcon from "~/shared/buttons/tool-tip";
 import DatePicker from "../date-picker";
 import DropDownNumber from "~/routes/account/components/number-dropdown";
 import DropDownSelect from "~/routes/account/components/dropdown-select";
+import dayjs from "dayjs";
+import { useOutletContext } from "react-router";
 
 interface TrackButtonProps {
   colour: Colour;
@@ -13,6 +15,8 @@ interface TrackButtonProps {
 
 export default function OffCanvasFlow(props: TrackButtonProps) {
   const [show, setShow] = useState(false);
+  const [date, setDate] = useState(dayjs());
+  const { setFlowDates }: any = useOutletContext();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -57,22 +61,39 @@ export default function OffCanvasFlow(props: TrackButtonProps) {
               cursor: "pointer",
             }}
           >
-            Done
+            Close
           </button>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className="flex flex-col">
             <div className="flex flex-row justify-between mb-4">
               <p className="text-sm self-center m-0">Date of flow</p>
-              <DatePicker />
+              <DatePicker setDate={setDate} />
             </div>
-            <div className="flex flex-row justify-between">
+            <div className="flex flex-row justify-between mb-4">
               <p className="text-sm self-center m-0">Amount of flow</p>
               <DropDownSelect
                 options={["Heavy", "Medium", "Light"]}
                 width={"180px"}
               />
             </div>
+            <button
+              onClick={() => {
+                setFlowDates((current: string[]) => [
+                  ...current,
+                  date.format("YYYY-MM-DD").toString(),
+                ]);
+                handleClose();
+              }}
+              className="text-white p-2 mt-4"
+              style={{
+                backgroundColor: Colour.DarkPink,
+                borderRadius: "10px",
+                height: "auto",
+              }}
+            >
+              Save Changes
+            </button>
           </div>
         </Offcanvas.Body>
       </Offcanvas>

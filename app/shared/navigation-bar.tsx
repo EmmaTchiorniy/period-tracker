@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./navigation-bar.scss";
+
 import { Link, useLocation } from "react-router";
 
 import HomeFilled from "../../resources/icons/house-2-fill.svg";
@@ -35,7 +36,6 @@ const navItems = [
 
 export default function NavigationBar() {
   const location = useLocation();
-
   return (
     <Navbar fixed="bottom" className="h-20 bg-[#f3f3f3] py-0">
       <Container>

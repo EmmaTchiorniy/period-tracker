@@ -5,7 +5,11 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
-export default function StyledDatePicker() {
+interface DatePickerProps {
+  setDate: any;
+}
+
+export default function StyledDatePicker(props: DatePickerProps) {
   const [value, setValue] = React.useState(dayjs());
 
   return (
@@ -13,8 +17,13 @@ export default function StyledDatePicker() {
       <Stack spacing={2}>
         <DatePicker
           value={value}
+          onAccept={(value) => {
+            props.setDate(value);
+          }}
           onChange={(newValue) => {
-            if (newValue != null) setValue(newValue);
+            if (newValue != null) {
+              setValue(newValue);
+            }
           }}
           format="MMM D, YYYY"
           slotProps={{

@@ -1,22 +1,32 @@
-import dayjs from 'dayjs';
-import { useState } from 'react';
-import { Calendar } from '@mantine/dates';
+import dayjs from "dayjs";
+import { useEffect, useState } from "react";
+import { Calendar } from "@mantine/dates";
+import { useOutletContext } from "react-router";
 
 export default function TrackCalendar() {
-  const [selected, setSelected] = useState<string[]>([]);
+  const { flowDates, setFlowDates }: any = useOutletContext();
+
+  const [selected, setSelected] = useState<string[]>(flowDates);
+
+  useEffect(() => {
+    setSelected(() => flowDates);
+  }, [flowDates]);
+
   const handleSelect = (date: string) => {
-    const isSelected = selected.some((s) => dayjs(date).isSame(s, 'date'));
+    const isSelected = selected.some((s) => dayjs(date).isSame(s, "date"));
     if (isSelected) {
-      setSelected((current) => current.filter((d) => !dayjs(d).isSame(date, 'date')));
-    } else if (selected.length < 3) {
-      setSelected((current) => [...current, date]);
+      setFlowDates((current: string[]) =>
+        current.filter((d) => !dayjs(d).isSame(date, "date"))
+      );
+    } else {
+      setFlowDates((current: string[]) => [...current, date]);
     }
   };
 
   return (
     <Calendar
       getDayProps={(date) => ({
-        selected: selected.some((s) => dayjs(date).isSame(s, 'date')),
+        selected: selected.some((s) => dayjs(date).isSame(s, "date")),
         onClick: () => handleSelect(date),
       })}
     />
