@@ -47,7 +47,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   const [name, setName] = useState("Jane Doe");
-  const [flowDates, setFlowDates] = useState([dayjs()]);
+  const [flowDates, setFlowDates] = useState([]);
 
   return (
     <div>

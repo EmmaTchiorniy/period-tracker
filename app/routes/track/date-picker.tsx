@@ -4,11 +4,12 @@ import { Stack } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { useOutletContext } from "react-router";
 
-export default function StyledDatePicker() {
-  const { setFlowDates }: any = useOutletContext();
+interface DatePickerProps {
+  setDate: any;
+}
 
+export default function StyledDatePicker(props: DatePickerProps) {
   const [value, setValue] = React.useState(dayjs());
 
   return (
@@ -16,13 +17,12 @@ export default function StyledDatePicker() {
       <Stack spacing={2}>
         <DatePicker
           value={value}
+          onAccept={(value) => {
+            props.setDate(value);
+          }}
           onChange={(newValue) => {
             if (newValue != null) {
               setValue(newValue);
-              setFlowDates((current: string[]) => [
-                ...current,
-                newValue?.format("YYYY-MM-DD").toString(),
-              ]);
             }
           }}
           format="MMM D, YYYY"
