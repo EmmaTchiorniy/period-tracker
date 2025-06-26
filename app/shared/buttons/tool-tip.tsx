@@ -23,7 +23,7 @@ function TooltipIcon(props: ToolTipProps) {
         >
           <IconContext.Provider value={{ size: "27px" }}>
             <div>
-              <GoInfo />{" "}
+              <GoInfo />
             </div>
           </IconContext.Provider>
         </ActionIcon>
