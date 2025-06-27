@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { Calendar } from "@mantine/dates";
 import { useOutletContext } from "react-router";
+import "./calendar.css";
 
 export default function TrackCalendar() {
   const { flowDates, setFlowDates }: any = useOutletContext();
@@ -25,6 +26,13 @@ export default function TrackCalendar() {
 
   return (
     <Calendar
+      classNames={{
+        levelsGroup: "levels",
+        calendarHeader: "header",
+        weekday: "weekday",
+        day: "day",
+        calendarHeaderLevel: "header-level",
+      }}
       getDayProps={(date) => ({
         selected: selected.some((s) => dayjs(date).isSame(s, "date")),
         onClick: () => handleSelect(date),

@@ -1,0 +1,31 @@
+.levels {
+  background-color: rgba(236, 235, 235, 0.5);
+  border-radius: 10px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
+
+.header {
+  padding-top: 6px;
+}
+
+.header-level {
+  font-weight: 600;
+}
+
+.weekday {
+  text-align: center;
+  color: black;
+  font-size: small;
+}
+
+.day[data-selected="true"] {
+  background-color: #f85c5c;
+  color: black;
+  border-radius: 50px;
+}
+
+.day {
+  color: black;
+}
