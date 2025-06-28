@@ -3,7 +3,6 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { Colour } from "~/constants/colour";
 import TooltipIcon from "~/shared/buttons/tool-tip";
 import DatePicker from "../date-picker";
-import DropDownNumber from "~/routes/account/components/number-dropdown";
 import DropDownSelect from "~/routes/account/components/dropdown-select";
 import dayjs from "dayjs";
 import { useOutletContext } from "react-router";
@@ -79,10 +78,7 @@ export default function OffCanvasFlow(props: TrackButtonProps) {
             </div>
             <button
               onClick={() => {
-                setFlowDates((current: string[]) => [
-                  ...current,
-                  date.format("YYYY-MM-DD").toString(),
-                ]);
+                setFlowDates((current: dayjs.Dayjs[]) => [...current, date]);
                 handleClose();
               }}
               className="text-white p-2 mt-4"

@@ -13,7 +13,7 @@ interface TrackButtonProps {
 }
 
 export default function OffCanvasHistory(props: TrackButtonProps) {
-  const { flowDates, setFlowDates }: any = useOutletContext<Dayjs[]>();
+  const { flowDates }: any = useOutletContext<Dayjs[]>();
 
   const [show, setShow] = useState(false);
 
@@ -68,7 +68,10 @@ export default function OffCanvasHistory(props: TrackButtonProps) {
             flowDates
               .sort((a: Dayjs, b: Dayjs) => b.diff(a))
               .map((date: dayjs.Dayjs) => (
-                <HistoryItem date={date} key={date.toString()} />
+                <div className="pb-1">
+                  <HistoryItem date={date} key={date.toString()} />
+                  <hr />
+                </div>
               ))
           ) : (
             <p>Log your period to see some dates here!</p>

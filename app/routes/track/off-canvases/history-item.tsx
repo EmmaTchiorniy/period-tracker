@@ -8,7 +8,7 @@ interface HistoryItemProps {
 
 export default function HistoryItem(props: HistoryItemProps) {
   return (
-    <div className="flex flex-row justify-between text-sm pb-2">
+    <div className="flex flex-row justify-between text-sm">
       <p className="m-0">{props.date.format("MMMM DD, YYYY").toString()}</p>
       <DeleteModal date={props.date} />
     </div>
