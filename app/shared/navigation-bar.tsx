@@ -9,8 +9,8 @@ import AccountIcon from "./navbar-icons/account-icon";
 import TrackIcon from "./navbar-icons/track-icon";
 
 export default function NavigationBar() {
-  const [homeActive, setHomeActive] = useState(false);
-  const [trackActive, setTrackActive] = useState(true);
+  const [homeActive, setHomeActive] = useState(true);
+  const [trackActive, setTrackActive] = useState(false);
   const [accountActive, setAccountActive] = useState(false);
 
   return (
