@@ -7,20 +7,20 @@ import "./calendar.css";
 export default function TrackCalendar() {
   const { flowDates, setFlowDates }: any = useOutletContext();
 
-  const [selected, setSelected] = useState<string[]>(flowDates);
+  const [selected, setSelected] = useState<dayjs.Dayjs[]>(flowDates);
 
   useEffect(() => {
     setSelected(() => flowDates);
   }, [flowDates]);
 
-  const handleSelect = (date: string) => {
+  const handleSelect = (date: dayjs.Dayjs) => {
     const isSelected = selected.some((s) => dayjs(date).isSame(s, "date"));
     if (isSelected) {
-      setFlowDates((current: string[]) =>
+      setFlowDates((current: dayjs.Dayjs[]) =>
         current.filter((d) => !dayjs(d).isSame(date, "date"))
       );
     } else {
-      setFlowDates((current: string[]) => [...current, date]);
+      setFlowDates((current: dayjs.Dayjs[]) => [...current, date]);
     }
   };
 
@@ -35,7 +35,7 @@ export default function TrackCalendar() {
       }}
       getDayProps={(date) => ({
         selected: selected.some((s) => dayjs(date).isSame(s, "date")),
-        onClick: () => handleSelect(date),
+        onClick: () => handleSelect(dayjs(date)),
       })}
     />
   );

@@ -8,10 +8,14 @@ import HomeIcon from "./navbar-icons/home-icon";
 import AccountIcon from "./navbar-icons/account-icon";
 import TrackIcon from "./navbar-icons/track-icon";
 
+enum IconState {
+  Home,
+  Track,
+  Account,
+}
+
 export default function NavigationBar() {
-  const [homeActive, setHomeActive] = useState(true);
-  const [trackActive, setTrackActive] = useState(false);
-  const [accountActive, setAccountActive] = useState(false);
+  const [activeIcon, setActiveIcon] = useState(IconState.Home);
 
   return (
     <Navbar
@@ -27,13 +31,11 @@ export default function NavigationBar() {
             as={Link}
             to="/"
             onClick={() => {
-              setHomeActive(true);
-              setAccountActive(false);
-              setTrackActive(false);
+              setActiveIcon(IconState.Home);
             }}
           >
             <div className="flex flex-col items-center">
-              <HomeIcon isActive={homeActive} />
+              <HomeIcon isActive={activeIcon == IconState.Home} />
               <p className="mb-0">Home</p>
             </div>
           </Nav.Link>
@@ -41,13 +43,11 @@ export default function NavigationBar() {
             as={Link}
             to="/track"
             onClick={() => {
-              setHomeActive(false);
-              setAccountActive(false);
-              setTrackActive(true);
+              setActiveIcon(IconState.Track);
             }}
           >
             <div className="flex flex-col items-center">
-              <TrackIcon isActive={trackActive} />
+              <TrackIcon isActive={activeIcon == IconState.Track} />
               <p className="mb-0">Track</p>
             </div>
           </Nav.Link>
@@ -55,13 +55,11 @@ export default function NavigationBar() {
             as={Link}
             to="/account"
             onClick={() => {
-              setHomeActive(false);
-              setAccountActive(true);
-              setTrackActive(false);
+              setActiveIcon(IconState.Account);
             }}
           >
             <div className="flex flex-col items-center">
-              <AccountIcon isActive={accountActive} />
+              <AccountIcon isActive={activeIcon == IconState.Account} />
               <p className="mb-0">Account</p>
             </div>
           </Nav.Link>

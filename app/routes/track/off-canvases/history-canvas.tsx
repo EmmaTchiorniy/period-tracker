@@ -1,7 +1,11 @@
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { useOutletContext } from "react-router";
 import { Colour } from "~/constants/colour";
 import TooltipIcon from "~/shared/buttons/tool-tip";
+import HistoryItem from "./history-item";
+import type { Dayjs } from "dayjs";
+import type dayjs from "dayjs";
 
 interface TrackButtonProps {
   colour: Colour;
@@ -9,6 +13,8 @@ interface TrackButtonProps {
 }
 
 export default function OffCanvasHistory(props: TrackButtonProps) {
+  const { flowDates, setFlowDates }: any = useOutletContext<Dayjs[]>();
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -54,10 +60,20 @@ export default function OffCanvasHistory(props: TrackButtonProps) {
               cursor: "pointer",
             }}
           >
-            Done
+            Close
           </button>
         </Offcanvas.Header>
-        <Offcanvas.Body>Log your period to see some history!</Offcanvas.Body>
+        <Offcanvas.Body className="overflow-scroll">
+          {flowDates.length != 0 ? (
+            flowDates
+              .sort((a: Dayjs, b: Dayjs) => b.diff(a))
+              .map((date: dayjs.Dayjs) => (
+                <HistoryItem date={date} key={date.toString()} />
+              ))
+          ) : (
+            <p>Log your period to see some dates here!</p>
+          )}
+        </Offcanvas.Body>
       </Offcanvas>
     </>
   );
