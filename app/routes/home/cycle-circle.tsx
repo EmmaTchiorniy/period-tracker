@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import "./home.css";
 import { useOutletContext } from "react-router";
 import { Colour } from "~/constants/colour";
@@ -14,7 +14,11 @@ export default function CycleCircle(props: CycleCircleProps) {
 
   useEffect(() => {
     if (flowDates.some((day: dayjs.Dayjs) => day.isSame(props.day, "day"))) {
-      setColour(() => Colour.Pink);
+      if (dayjs().diff(props.day) < 0) {
+        setColour(() => Colour.LightPink);
+      } else {
+        setColour(() => Colour.Pink);
+      }
     } else {
       setColour(() => Colour.LightLightGrey);
     }
