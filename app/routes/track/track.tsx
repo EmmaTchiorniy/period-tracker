@@ -16,7 +16,7 @@ export default function Track() {
       <div className="w-max">
         <Welcome name={name} />
         <div className="flex items-center pb-4 flex-col">
-          <div className="pb-4 flex justify-center h-80 w-64 items-center">
+          <div className="pb-4 flex justify-center h-71 w-64 items-center">
             <TrackCalendar />
           </div>
           <div>

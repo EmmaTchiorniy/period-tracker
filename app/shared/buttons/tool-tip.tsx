@@ -14,7 +14,17 @@ function TooltipIcon(props: ToolTipProps) {
     <>
       <OverlayTrigger
         placement="top"
-        overlay={<Tooltip id={props.text}>{props.text}</Tooltip>}
+        overlay={
+          <Tooltip
+            style={{
+              fontFamily: "monospace",
+              fontSize: "small",
+            }}
+            id={props.text}
+          >
+            {props.text}
+          </Tooltip>
+        }
       >
         <ActionIcon
           variant="transparent"

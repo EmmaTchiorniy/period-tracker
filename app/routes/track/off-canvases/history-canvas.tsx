@@ -37,7 +37,7 @@ export default function OffCanvasHistory(props: TrackButtonProps) {
         >
           <p className="pl-2.5 mb-0">+ {props.text}</p>
         </button>
-        <TooltipIcon text="Here you can edit your logs" colour={props.colour} />
+        <TooltipIcon text="Edit your logs here" colour={props.colour} />
       </div>
       <Offcanvas
         show={show}

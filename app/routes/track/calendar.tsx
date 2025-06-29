@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Calendar } from "@mantine/dates";
 import { useOutletContext } from "react-router";
 import "./calendar.css";
+import type { MantineSize } from "@mantine/core";
 
 export default function TrackCalendar() {
   const { flowDates, setFlowDates }: any = useOutletContext();
@@ -24,6 +25,8 @@ export default function TrackCalendar() {
     }
   };
 
+  const size: MantineSize = "xs";
+
   return (
     <Calendar
       classNames={{
@@ -33,6 +36,7 @@ export default function TrackCalendar() {
         day: "day",
         calendarHeaderLevel: "header-level",
       }}
+      size={size}
       getDayProps={(date) => ({
         selected: selected.some((s) => dayjs(date).isSame(s, "date")),
         onClick: () => handleSelect(dayjs(date)),

@@ -38,10 +38,7 @@ export default function OffCanvasSymptoms(props: TrackButtonProps) {
         >
           <p className="pl-2.5 mb-0">+ {props.text}</p>
         </button>
-        <TooltipIcon
-          text="Here you can log your symptoms"
-          colour={props.colour}
-        />
+        <TooltipIcon text="Log your symptoms here" colour={props.colour} />
       </div>
       <Offcanvas
         show={show}

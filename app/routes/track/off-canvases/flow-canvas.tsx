@@ -37,7 +37,7 @@ export default function OffCanvasFlow(props: TrackButtonProps) {
         >
           <p className="pl-2.5 mb-0">+ {props.text}</p>
         </button>
-        <TooltipIcon text="Here you can log your flow" colour={props.colour} />
+        <TooltipIcon text="Log your flow here" colour={props.colour} />
       </div>
       <Offcanvas
         show={show}
