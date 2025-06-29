@@ -4,3 +4,10 @@
 # React Router
 /.react-router/
 /build/
+resources/build
+
+# firebase
+.firebase
+.firebaserc
+firebase.json
+pglite-debug.log
