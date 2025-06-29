@@ -9,5 +9,5 @@ resources/build
 # firebase
 .firebase
 .firebaserc
-firebase.json
+firebase-debug.log
 pglite-debug.log
