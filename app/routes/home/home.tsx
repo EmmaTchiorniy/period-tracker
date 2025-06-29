@@ -5,6 +5,9 @@ import ButtonGroup from "../../shared/buttons/button-group";
 import HomeSlider from "./home-slider";
 import Welcome from "~/shared/welcome";
 import { useOutletContext } from "react-router";
+import "./home.css";
+import CycleCircle from "./cycle-circle";
+import dayjs from "dayjs";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -14,7 +17,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { name }: any = useOutletContext();
+  const { name, flowDates }: any = useOutletContext();
 
   return (
     <main className="flex flex-col items-center">
@@ -24,10 +27,22 @@ export default function Home() {
           <div className="pb-13 ">
             <HomeSlider />
           </div>
-          <div className="pb-3">
-            <h3>Cycle Overview</h3>
-          </div>
           <div>
+            <div className="mb-3">
+              <p
+                className="mb-3"
+                style={{ fontSize: "small", color: Colour.LightGrey }}
+              >
+                Cycle Overview
+              </p>
+              <div className="flex flex-row mb-4 justify-between mx-1">
+                {Array(9)
+                  .fill(null)
+                  .map((_, i) => (
+                    <CycleCircle day={dayjs().subtract(4 - i, "day")} key={i} />
+                  ))}
+              </div>
+            </div>
             <div className="pb-4">
               <ButtonGroup text="Diet" colour={Colour.LightGrey}>
                 <div className="mr-4">
