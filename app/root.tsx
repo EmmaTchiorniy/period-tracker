@@ -52,6 +52,7 @@ export default function App() {
   return (
     <div>
       <Outlet context={{ name, setName, flowDates, setFlowDates }} />
+      <div className="h-20" />
       <NavigationBar />
     </div>
   );
