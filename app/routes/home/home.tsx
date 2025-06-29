@@ -8,6 +8,7 @@ import { useOutletContext } from "react-router";
 import "./home.css";
 import CycleCircle from "./cycle-circle";
 import dayjs from "dayjs";
+import { IconState } from "~/constants/icon";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,7 +18,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { name, flowDates }: any = useOutletContext();
+  const { name, flowDates, setActiveIcon }: any = useOutletContext();
+
+  setActiveIcon(IconState.Home);
 
   return (
     <main className="flex flex-col items-center">

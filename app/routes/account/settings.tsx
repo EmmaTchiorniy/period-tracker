@@ -3,15 +3,18 @@ import DropDownSelect from "./components/dropdown-select";
 import { useOutletContext } from "react-router";
 import { useState } from "react";
 import { Colour } from "~/constants/colour";
+import { IconState } from "~/constants/icon";
 
 export default function Settings() {
-  const { name, setName }: any = useOutletContext();
+  const { name, setName, setActiveIcon }: any = useOutletContext();
 
   const languages = ["English", "German", "Italian", "French", "Spanish"];
 
   const [saved, setSaved] = useState(false);
 
   const [tempName, setTempName] = useState(name);
+
+  setActiveIcon(IconState.Account);
 
   return (
     <div className="pt-16 px-8 relative items-center">

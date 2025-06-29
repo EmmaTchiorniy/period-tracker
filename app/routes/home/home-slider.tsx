@@ -37,7 +37,7 @@ export default function HomeSlider() {
             <h6 className="mt-2 mb-2.5">menstrual phase</h6>
             <IconContext.Provider value={{ size: "32px", color: "white" }}>
               <div className="mb-1">
-                <MdOutlineWaterDrop />{" "}
+                <MdOutlineWaterDrop />
               </div>
             </IconContext.Provider>
             <p className="mb-1">Day 1-5</p>

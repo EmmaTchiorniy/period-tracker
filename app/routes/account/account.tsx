@@ -1,12 +1,15 @@
 import { useNavigate, useOutletContext } from "react-router";
 import { Colour } from "~/constants/colour";
+import { IconState } from "~/constants/icon";
 import AccountButton from "~/shared/buttons/account-button";
 import ButtonGroup from "~/shared/buttons/button-group";
 import Welcome from "~/shared/welcome";
 
 export default function Account() {
   let navigate = useNavigate();
-  const { name }: any = useOutletContext();
+  const { name, setActiveIcon }: any = useOutletContext();
+
+  setActiveIcon(IconState.Account);
 
   return (
     <main className="flex flex-col items-center">

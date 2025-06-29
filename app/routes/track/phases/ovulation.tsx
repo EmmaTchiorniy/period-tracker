@@ -1,6 +1,13 @@
+import { useOutletContext } from "react-router";
+import { IconState } from "~/constants/icon";
 import BackButton from "~/shared/buttons/back-button";
+import "./phases.scss";
 
 export default function Ovulation() {
+  const { setActiveIcon }: any = useOutletContext();
+
+  setActiveIcon(IconState.Track);
+
   return (
     <div className="pt-16 px-8 relative items-center">
       <BackButton prevHref={"/track"}></BackButton>
@@ -9,7 +16,7 @@ export default function Ovulation() {
       </h4>
       <p className="pt-5 text-sm text-justify">
         This phase occurs roughly at about day 14 in a 28-day menstrual cycle. A
-        sudden increase in another hormone —
+        sudden increase in another hormone —{" "}
         <a
           target="_blank"
           href="https://my.clevelandclinic.org/health/body/22255-luteinizing-hormone"

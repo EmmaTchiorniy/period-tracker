@@ -1,7 +1,13 @@
 import BackButton from "~/shared/buttons/back-button";
 import "./phases.scss";
+import { useOutletContext } from "react-router";
+import { IconState } from "~/constants/icon";
 
 export default function Follicular() {
+  const { setActiveIcon }: any = useOutletContext();
+
+  setActiveIcon(IconState.Track);
+
   return (
     <div className="pt-16 px-8 relative items-center">
       <BackButton prevHref={"/track"}></BackButton>

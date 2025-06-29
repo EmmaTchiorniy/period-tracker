@@ -7,9 +7,12 @@ import OffCanvasSymptoms from "./off-canvases/symptoms-canvas";
 import OffCanvasHistory from "./off-canvases/history-canvas";
 import Welcome from "~/shared/welcome";
 import { useOutletContext } from "react-router";
+import { IconState } from "~/constants/icon";
 
 export default function Track() {
-  const { name }: any = useOutletContext();
+  const { name, setActiveIcon }: any = useOutletContext();
+
+  setActiveIcon(IconState.Track);
 
   return (
     <main className="flex flex-col items-center">
