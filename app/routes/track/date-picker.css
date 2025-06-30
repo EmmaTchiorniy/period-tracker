@@ -1,0 +1,22 @@
+.day[data-selected="true"] {
+  background-color: #f85c5c;
+  color: black;
+  border-radius: 50px;
+  font-size: small;
+}
+
+.day {
+  color: black;
+  font-size: small;
+}
+
+.header-level {
+  font-weight: 600;
+  font-size: medium;
+}
+
+.weekday {
+  text-align: center;
+  color: black;
+  font-size: small;
+}
