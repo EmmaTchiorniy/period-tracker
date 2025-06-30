@@ -26,11 +26,10 @@ export default function StyledDatePicker(props: DatePickerProps) {
       placeholder={dayjs().format("MMM DD, YYYY").toString()}
       popoverProps={{ zIndex: 2000 }}
       classNames={{
-        levelsGroup: "levels",
-        calendarHeader: "header",
         weekday: "weekday",
         day: "day",
         calendarHeaderLevel: "header-level",
+        input: "input",
       }}
     />
   );
