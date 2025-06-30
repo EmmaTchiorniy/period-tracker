@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { useState } from "react";
-import { DateInput } from "@mantine/dates";
+import { DatePickerInput } from "@mantine/dates";
 import "./date-picker.css";
 
 interface DatePickerProps {
@@ -18,7 +18,7 @@ export default function StyledDatePicker(props: DatePickerProps) {
   };
 
   return (
-    <DateInput
+    <DatePickerInput
       value={value}
       maxDate={dayjs().format("YYYY-MM-DD").toString()}
       onChange={onChange}
