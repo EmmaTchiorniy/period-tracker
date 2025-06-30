@@ -18,10 +18,9 @@ npm run dev
 
 Your application will be available at `http://localhost:5173`.
 
-## Building for Production
-
-Create a production build:
+## For Deploying To Firebase
+Execute this command: 
 
 ```bash
-npm run build
+npm run deploy
 ```
