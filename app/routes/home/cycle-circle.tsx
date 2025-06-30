@@ -13,7 +13,7 @@ export default function CycleCircle(props: CycleCircleProps) {
   const [colour, setColour] = useState(Colour.LightLightGrey);
 
   useEffect(() => {
-    if (flowDates.some((day: dayjs.Dayjs) => day.isSame(props.day, "day"))) {
+    if (flowDates.some((day: dayjs.Dayjs) => day.isSame(props.day, "date"))) {
       if (dayjs().diff(props.day) < 0) {
         setColour(() => Colour.LightPink);
       } else {

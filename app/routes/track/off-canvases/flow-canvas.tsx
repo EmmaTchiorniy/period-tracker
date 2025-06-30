@@ -7,6 +7,19 @@ import DropDownSelect from "~/routes/account/components/dropdown-select";
 import dayjs from "dayjs";
 import { useOutletContext } from "react-router";
 
+const containsDate = (a: dayjs.Dayjs[], b: dayjs.Dayjs) => {
+  return a.some((s) => b.isSame(s, "date"));
+};
+
+const filterDuplicates = (a: dayjs.Dayjs[], b: dayjs.Dayjs) => {
+  if (!containsDate(a, b)) a.push(b);
+  return a;
+};
+
+const distinctDays = (days: dayjs.Dayjs[]) => {
+  return days.reduce(filterDuplicates, []);
+};
+
 interface TrackButtonProps {
   colour: Colour;
   text: string;
@@ -78,7 +91,9 @@ export default function OffCanvasFlow(props: TrackButtonProps) {
             </div>
             <button
               onClick={() => {
-                setFlowDates((current: dayjs.Dayjs[]) => [...current, date]);
+                setFlowDates((current: dayjs.Dayjs[]) =>
+                  distinctDays([...current, date])
+                );
                 handleClose();
               }}
               className="text-white p-2 mt-4"
