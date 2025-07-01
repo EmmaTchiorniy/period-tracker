@@ -16,10 +16,11 @@ Start the development server with HMR:
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+The application will be available at `http://localhost:5173`.
 
 ## For Deploying To Firebase
-Execute this command: 
+
+Execute this command:
 
 ```bash
 npm run deploy
