@@ -9,6 +9,15 @@ import "./home.css";
 import CycleCircle from "./cycle-circle";
 import dayjs from "dayjs";
 import { IconState } from "~/constants/icon";
+import QuoteRotator from "./quote-rotator";
+
+
+const quotes = [
+  "Your body is not broken. It’s just communicating.",
+  "Rest is productive, too.",
+  "Listen to what your cycle is trying to tell you.",
+  "You are strong, even on the days you feel weak.",
+];
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -62,6 +71,7 @@ export default function Home() {
                 />
               </ButtonGroup>
             </div>
+            <div className="pb-4">
             <ButtonGroup text="Exercise" colour={Colour.LightGrey}>
               <div className="mr-4">
                 <HomeButton
@@ -76,6 +86,12 @@ export default function Home() {
                 href="exercise/dos-donts"
               />
             </ButtonGroup>
+            </div>
+            <div className = "pb-4">
+              <ButtonGroup text = "Encouraging Quotes" colour={Colour.LightGrey}>
+                <QuoteRotator quotes={quotes} />
+              </ButtonGroup>
+            </div>
           </div>
         </div>
       </div>
