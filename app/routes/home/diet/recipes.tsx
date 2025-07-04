@@ -1,5 +1,5 @@
 import BackButton from "~/shared/buttons/back-button";
-import RecipesButton from "~/shared/buttons/recipes-button"
+import HomeButton from "~/shared/buttons/home-button"
 import ButtonGroup from "~/shared/buttons/button-group";
 import {Colour} from "~/constants/colour";
 
@@ -20,13 +20,13 @@ export default function Recipes() {
             <div className="pb-4">
               <ButtonGroup text="Breakfast" colour={Colour.LightGrey}>
                 <div className="mr-4">
-                  <RecipesButton
+                  <HomeButton
                     colour={Colour.Green}
                     text="Oatmeal"
                     href="oatmeal"
                   />
                 </div>
-                <RecipesButton
+                <HomeButton
                   colour={Colour.Green}
                   text="Spinach Omelette"
                   href="spinach"
@@ -36,13 +36,13 @@ export default function Recipes() {
             <div className="pb-4">
               <ButtonGroup text="Lunch" colour={Colour.LightGrey}>
                 <div className="mr-4">
-                  <RecipesButton
+                  <HomeButton
                     colour={Colour.Orange}
                     text="Stir-Fry"
                     href="stirfry"
                   />
                 </div>
-                <RecipesButton
+                <HomeButton
                   colour={Colour.Orange}
                   text="Lentil Stew"
                   href="lentil"
@@ -52,13 +52,13 @@ export default function Recipes() {
             <div className="pb-4">
               <ButtonGroup text="Dinner" colour={Colour.LightGrey}>
                 <div className="mr-4">
-                  <RecipesButton
+                  <HomeButton
                     colour={Colour.Blue}
                     text="Chickpea Curry"
                     href="chickpea"
                   />
                 </div>
-                <RecipesButton
+                <HomeButton
                   colour={Colour.Blue}
                   text="Protein Pasta"
                   href="pasta"
