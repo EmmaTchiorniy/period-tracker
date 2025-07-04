@@ -16,6 +16,7 @@ export default function Workouts() {
                     It is important to take it slow
                   </p>
         <div className = "mt-5 mb-5">
+          
           <div className="pb-4">
           <ButtonGroup text="Stretching" colour={Colour.LightGrey}>
                           
