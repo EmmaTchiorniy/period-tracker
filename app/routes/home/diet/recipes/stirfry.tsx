@@ -10,7 +10,7 @@ export default function Stirfry() {
             <b>Stir-Fry</b>
           </h3>
           <img
-            src="/app/images/stirfry.jpeg"
+            src="/resources/images/stirfry.jpeg"
             alt="A bowl of banana walnut oatmeal"
             className="rounded-lg shadow mb-5"
           />

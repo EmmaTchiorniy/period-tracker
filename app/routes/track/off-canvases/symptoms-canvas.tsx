@@ -66,7 +66,7 @@ export default function OffCanvasSymptoms(props: TrackButtonProps) {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div className="flex flex-col gap-2.5">
-            {symptoms.map((item) => (
+            {symptoms.map((item, index) => (
               <label key={item} className="w-58 ml-2">
                 <input
                   type="checkbox"
