@@ -13,7 +13,7 @@ export default function DietDosDonts() {
             Your diet can influence your symptoms
           </p>
           <div className="text-start mb-5">
-            <p className="mb-1.5">Dos</p>
+            <p className="font-semibold mb-1.5">Dos</p>
             <p className="mb-1">dark chocolate</p>
             <p className="mb-1">fruit</p>
             <p className="mb-1">ginger</p>
@@ -21,7 +21,7 @@ export default function DietDosDonts() {
             <p className="mb-0">brown sugar</p>
           </div>
           <div className="text-start">
-            <p className="mb-1.5">Donts</p>
+            <p className="font-semibold mb-1.5">Donts</p>
             <p className="mb-1">caffeine</p>
             <p className="mb-1">cold food and beverages</p>
             <p className="mb-1">alcohol</p>
