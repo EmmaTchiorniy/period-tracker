@@ -4,24 +4,26 @@ import { Calendar } from "@mantine/dates";
 import { useOutletContext } from "react-router";
 import "./calendar.css";
 import type { MantineSize } from "@mantine/core";
+import FlowLog from "./flowLog";
 
 export default function TrackCalendar() {
-  const { flowDates, setFlowDates }: any = useOutletContext();
+  const { flowLogs, setFlowLogs }: any = useOutletContext();
+  const flowDates = () => flowLogs.map((log: FlowLog) => log.date);
 
   const [selected, setSelected] = useState<dayjs.Dayjs[]>(flowDates);
 
   useEffect(() => {
-    setSelected(() => flowDates);
-  }, [flowDates]);
+    setSelected(flowDates);
+  }, [flowLogs]);
 
   const handleSelect = (date: dayjs.Dayjs) => {
     const isSelected = selected.some((s) => dayjs(date).isSame(s, "date"));
     if (isSelected) {
-      setFlowDates((current: dayjs.Dayjs[]) =>
-        current.filter((d) => !dayjs(d).isSame(date, "date"))
+      setFlowLogs((current: FlowLog[]) =>
+        current.filter((log) => !dayjs(log.date).isSame(date, "date"))
       );
     } else {
-      setFlowDates((current: dayjs.Dayjs[]) => [...current, date]);
+      setFlowLogs((current: FlowLog[]) => [...current, new FlowLog(date)]);
     }
   };
 

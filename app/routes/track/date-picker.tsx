@@ -2,9 +2,10 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import { DatePickerInput } from "@mantine/dates";
 import "./date-picker.css";
+import FlowLog from "./flowLog";
 
 interface DatePickerProps {
-  setDate: any;
+  setLog: any;
 }
 
 export default function StyledDatePicker(props: DatePickerProps) {
@@ -14,7 +15,7 @@ export default function StyledDatePicker(props: DatePickerProps) {
 
   const onChange = (newValue: string | null) => {
     setValue(newValue);
-    props.setDate(dayjs(newValue?.toString()));
+    props.setLog(new FlowLog(dayjs(newValue?.toString())));
   };
 
   return (

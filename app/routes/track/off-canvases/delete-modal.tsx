@@ -2,17 +2,18 @@ import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import type dayjs from "dayjs";
 import { useState } from "react";
 import { useOutletContext } from "react-router";
+import type FlowLog from "../flowLog";
 
 interface DeleteModalProps {
-  date: dayjs.Dayjs;
+  log: FlowLog;
 }
 
 export default function DeleteModal(props: DeleteModalProps) {
   let [isOpen, setIsOpen] = useState(false);
-  const { flowDates, setFlowDates }: any = useOutletContext();
+  const { flowLogs, setFlowLogs }: any = useOutletContext();
 
-  const handleDelete = (dateToDelete: dayjs.Dayjs) => {
-    setFlowDates(flowDates.filter((date: dayjs.Dayjs) => date != dateToDelete));
+  const handleDelete = (logToDelete: FlowLog) => {
+    setFlowLogs(flowLogs.filter((log: FlowLog) => !log.isSame(logToDelete)));
     setIsOpen(false);
   };
 
@@ -36,7 +37,7 @@ export default function DeleteModal(props: DeleteModalProps) {
                 <button onClick={() => setIsOpen(false)}>Cancel</button>
                 <button
                   className="text-red-400"
-                  onClick={() => handleDelete(props.date)}
+                  onClick={() => handleDelete(props.log)}
                 >
                   Delete
                 </button>

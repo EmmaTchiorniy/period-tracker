@@ -12,8 +12,8 @@ import "./app.css";
 import NavigationBar from "./shared/navigation-bar";
 import { MantineProvider } from "@mantine/core";
 import { useState } from "react";
-import dayjs from "dayjs";
 import { IconState } from "./constants/icon";
+import type FlowLog from "./routes/track/flowLog";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -48,13 +48,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   const [name, setName] = useState<string>("Jane Doe");
-  const [flowDates, setFlowDates] = useState<dayjs.Dayjs[]>([]);
+  const [flowLogs, setFlowLogs] = useState<FlowLog[]>([]);
   const [activeIcon, setActiveIcon] = useState<IconState>(IconState.Home);
 
   return (
     <div>
       <Outlet
-        context={{ name, setName, flowDates, setFlowDates, setActiveIcon }}
+        context={{
+          name,
+          setName,
+          flowLogs,
+          setFlowLogs,
+          setActiveIcon,
+        }}
       />
       <div className="h-20" />
       <NavigationBar activeIcon={activeIcon} />

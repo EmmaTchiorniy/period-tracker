@@ -6,18 +6,20 @@ import DatePicker from "../date-picker";
 import DropDownSelect from "~/routes/account/components/dropdown-select";
 import dayjs from "dayjs";
 import { useOutletContext } from "react-router";
+import FlowLog from "../flowLog";
 
-const containsDate = (a: dayjs.Dayjs[], b: dayjs.Dayjs) => {
-  return a.some((s) => b.isSame(s, "date"));
+const containsLog = (a: FlowLog[], b: FlowLog) => {
+  return a.some((l) => b.isSame(l));
 };
 
-const filterDuplicates = (a: dayjs.Dayjs[], b: dayjs.Dayjs) => {
-  if (!containsDate(a, b)) a.push(b);
+const filterDuplicates = (a: FlowLog[], b: FlowLog) => {
+  if (!containsLog(a, b)) a.push(b);
   return a;
 };
 
-const distinctDays = (days: dayjs.Dayjs[]) => {
-  return days.reduce(filterDuplicates, []);
+const distinctLogs = (logs: FlowLog[]) => {
+  var temp = logs.reduce(filterDuplicates, []);
+  return temp;
 };
 
 interface TrackButtonProps {
@@ -27,8 +29,9 @@ interface TrackButtonProps {
 
 export default function OffCanvasFlow(props: TrackButtonProps) {
   const [show, setShow] = useState(false);
-  const [date, setDate] = useState(dayjs());
-  const { setFlowDates }: any = useOutletContext();
+  const [log, setLog] = useState<FlowLog>(new FlowLog(dayjs()));
+  const [intensity, setIntensity] = useState("Heavy");
+  const { flowLogs, setFlowLogs }: any = useOutletContext();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -80,20 +83,23 @@ export default function OffCanvasFlow(props: TrackButtonProps) {
           <div className="flex flex-col">
             <div className="flex flex-row justify-between mb-4">
               <p className="text-sm self-center m-0">Date of flow</p>
-              <DatePicker setDate={setDate} />
+              <DatePicker setLog={setLog} />
             </div>
             <div className="flex flex-row justify-between mb-4">
               <p className="text-sm self-center m-0">Amount of flow</p>
               <DropDownSelect
+                setFunc={setIntensity}
                 options={["Heavy", "Medium", "Light"]}
                 width={"180px"}
               />
             </div>
             <button
               onClick={() => {
-                setFlowDates((current: dayjs.Dayjs[]) =>
-                  distinctDays([...current, date])
+                let newLog = new FlowLog(log.date, intensity);
+                setFlowLogs((current: FlowLog[]) =>
+                  distinctLogs([...current, newLog])
                 );
+
                 handleClose();
               }}
               className="text-white p-2 mt-4"

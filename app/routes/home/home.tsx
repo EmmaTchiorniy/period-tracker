@@ -11,7 +11,6 @@ import dayjs from "dayjs";
 import { IconState } from "~/constants/icon";
 import QuoteRotator from "./quote-rotator";
 
-
 const quotes = [
   "Your body is not broken. It’s just communicating.",
   "Rest is productive, too.",
@@ -27,7 +26,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const { name, flowDates, setActiveIcon }: any = useOutletContext();
+  const { name, setActiveIcon }: any = useOutletContext();
 
   setActiveIcon(IconState.Home);
 
@@ -72,23 +71,23 @@ export default function Home() {
               </ButtonGroup>
             </div>
             <div className="pb-4">
-            <ButtonGroup text="Exercise" colour={Colour.LightGrey}>
-              <div className="mr-4">
+              <ButtonGroup text="Exercise" colour={Colour.LightGrey}>
+                <div className="mr-4">
+                  <HomeButton
+                    colour={Colour.Blue}
+                    text="Workouts"
+                    href="exercise/workouts"
+                  />
+                </div>
                 <HomeButton
                   colour={Colour.Blue}
-                  text="Workouts"
-                  href="exercise/workouts"
+                  text="Dos & Donts"
+                  href="exercise/dos-donts"
                 />
-              </div>
-              <HomeButton
-                colour={Colour.Blue}
-                text="Dos & Donts"
-                href="exercise/dos-donts"
-              />
-            </ButtonGroup>
+              </ButtonGroup>
             </div>
-            <div className = "pb-4">
-              <ButtonGroup text = "Encouraging Quotes" colour={Colour.LightGrey}>
+            <div className="pb-4">
+              <ButtonGroup text="Encouraging Quotes" colour={Colour.LightGrey}>
                 <QuoteRotator quotes={quotes} />
               </ButtonGroup>
             </div>

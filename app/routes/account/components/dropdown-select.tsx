@@ -4,12 +4,14 @@ import Form from "react-bootstrap/Form";
 type DropDownSelectProps = {
   options: string[] | number[];
   width: string;
+  setFunc: any;
 };
 
 function DropDownSelect(props: DropDownSelectProps) {
   const [selectedOption, setSelectedOption] = useState("Select");
   const handleSelectChange = (e: any) => {
     setSelectedOption(e.target.value);
+    props.setFunc(e.target.value);
   };
 
   return (
